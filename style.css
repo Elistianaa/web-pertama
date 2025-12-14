@@ -1,0 +1,190 @@
+:root{
+  --bg: #fff7fb;           /* background soft pink */
+  --pink: #f2a7c2;         /* warna utama */
+  --pink-dark: #c04a7a;    /* hover/outline */
+  --text: #2b2b2b;
+}
+
+html { scroll-behavior: smooth; }
+body{ background: var(--bg); color: var(--text); }
+
+a{ color: var(--pink-dark); }
+a:hover{ color: #a83b67; }
+
+/* ===== Navbar ===== */
+.navbar{ background: var(--pink) !important; transition: .2s ease; }
+.navbar:hover{ filter: brightness(.98); }
+
+/* ===== Cards & Shadows ===== */
+.card{ border-radius: 18px; }
+.shadow-soft{ box-shadow: 0 10px 30px rgba(192,74,122,.12); }
+
+/* ===== Buttons ===== */
+.btn-soft{
+  background: var(--pink);
+  border: 0;
+  color: #fff;
+  transition: transform .15s ease, filter .15s ease;
+}
+.btn-soft:hover{ filter: brightness(.96); color:#fff; transform: translateY(-1px); }
+
+.btn-outline-pink{
+  --bs-btn-color: var(--pink-dark);
+  --bs-btn-border-color: rgba(192,74,122,.35);
+  --bs-btn-hover-bg: var(--pink-dark);
+  --bs-btn-hover-border-color: var(--pink-dark);
+  --bs-btn-hover-color: #fff;
+}
+
+/* ===== Background pattern soft ===== */
+.bg-soft {
+  background:
+    radial-gradient(900px 300px at 10% 10%, rgba(242,167,194,.22), transparent 55%),
+    radial-gradient(700px 260px at 90% 20%, rgba(242,167,194,.18), transparent 55%),
+    radial-gradient(800px 320px at 40% 90%, rgba(242,167,194,.16), transparent 60%);
+}
+
+/* ===== Reusable UI: pill & tags ===== */
+.pill{
+  display:inline-flex; align-items:center; gap:.45rem;
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(192,74,122,.18);
+  color: var(--pink-dark);
+  padding: .5rem .95rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.tag{
+  display:inline-flex; align-items:center;
+  padding: .42rem .8rem;
+  border-radius: 999px;
+  background: rgba(242,167,194,.22);
+  border: 1px solid rgba(192,74,122,.18);
+  color: var(--pink-dark);
+  font-weight: 800;
+  font-size: .92rem;
+}
+
+/* ===== Beranda (Lux + Scroll) ===== */
+.hero-lux { padding: 28px 0; }  /* biar bisa scroll */
+.card-lux{ border-radius: 22px; }
+
+.btn-lux{
+  border-radius: 16px;
+  padding: .9rem 1rem;
+  font-weight: 800;
+  text-align: left;
+}
+.btn-lux:hover{ transform: translateY(-1px); transition: .15s ease; }
+
+.mini-lux{ border-radius: 20px; }
+.mini-title{ font-weight: 900; color: var(--pink-dark); }
+
+/* tombol scroll */
+.scroll-down{ text-decoration: none; }
+.scroll-dot{
+  width:36px; height:36px; border-radius: 999px;
+  display:grid; place-items:center;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(192,74,122,.18);
+  color: var(--pink-dark);
+  animation: bob 1.6s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(5px); }
+}
+
+/* ===== Map fullscreen page (peta-desa.html) ===== */
+.map-wrap{ height: calc(100vh - 56px); }
+.map-wrap iframe{ width:100%; height:100%; border:0; display:block; border-radius: 0; }
+
+/* ================================
+   ANIMASI SUPER PELAN (VERSI B)
+   ================================ */
+
+/* halaman masuk */
+@keyframes pageFadeIn {
+  from { opacity: 0; filter: blur(10px); transform: translateY(14px); }
+  to   { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+.page-enter{ animation: pageFadeIn 1.6s ease-out both; }
+
+/* reveal saat scroll */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(12px);
+  transition:
+    opacity 1.4s ease,
+    transform 1.4s ease,
+    filter 1.4s ease;
+  will-change: opacity, transform, filter;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* delay lebih pelan */
+.reveal.delay-1{ transition-delay: .35s; }
+.reveal.delay-2{ transition-delay: .60s; }
+.reveal.delay-3{ transition-delay: .85s; }
+
+/* ================================
+   CLICK TO INTERACT (anti scroll macet)
+   ================================ */
+.map-preview{
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+}
+.map-preview iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  pointer-events: none; /* default: scroll halaman lancar */
+}
+.map-overlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0);
+  transition: .2s ease;
+  pointer-events: none;
+}
+.map-overlay .hint{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.86);
+  border: 1px solid rgba(192,74,122,.18);
+  color: var(--pink-dark);
+  font-weight: 900;
+  box-shadow: 0 10px 26px rgba(192,74,122,.12);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: .2s ease;
+}
+.map-preview:hover .map-overlay .hint{
+  opacity: 1;
+  transform: translateY(0);
+}
+.map-preview.active iframe{
+  pointer-events: auto; /* klik = map bisa zoom/drag */
+}
+.map-preview.active .map-overlay .hint{
+  opacity: 0;
+}
+
+/* respect user setting */
+@media (prefers-reduced-motion: reduce){
+  .page-enter{ animation: none; }
+  .reveal{ opacity: 1; transform: none; filter: none; transition: none; }
+}

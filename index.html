@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebGIS Desa Purwasana</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-enter">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="index.html">WebGIS Purwasana</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="peta-desa.html">Peta Desa</a></li>
+        <li class="nav-item"><a class="nav-link" href="peta-kecamatan.html">Peta Kecamatan</a></li>
+        <li class="nav-item"><a class="nav-link" href="tanya-arah.html">Tanya Arah</a></li>
+        <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-lux bg-soft">
+  <div class="container py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="pill reveal delay-1">
+          <i class="bi bi-stars"></i> WebGIS Interaktif
+        </span>
+
+        <h1 class="display-5 fw-bold mt-3 mb-2 reveal delay-2">
+          WebGIS Desa Purwasana
+        </h1>
+
+        <p class="lead text-muted mb-4 reveal delay-3">
+          Peta interaktif batas desa, RT/RW, fasilitas umum, jalan, bangunan, dan penggunaan lahan.
+          Klik objek pada peta untuk melihat popup informasi detail.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 mb-4 reveal delay-3">
+          <span class="tag"><i class="bi bi-lightning-charge me-1"></i> Cepat</span>
+          <span class="tag"><i class="bi bi-map me-1"></i> Interaktif</span>
+          <span class="tag"><i class="bi bi-pin-map me-1"></i> Popup Info</span>
+          <span class="tag"><i class="bi bi-phone me-1"></i> Mobile</span>
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap reveal delay-3">
+          <a class="btn btn-soft px-4 btn-lg" href="#preview-peta-desa">
+            <i class="bi bi-map me-1"></i> Preview Peta Desa
+          </a>
+          <a class="btn btn-outline-pink px-4 btn-lg" href="#nav-sections">
+            <i class="bi bi-compass me-1"></i> Lihat Menu Beranda
+          </a>
+        </div>
+
+        <a class="scroll-down mt-4 d-inline-flex align-items-center gap-2 reveal delay-3" href="#nav-sections">
+          <span class="small text-muted">Scroll</span>
+          <span class="scroll-dot"><i class="bi bi-chevron-down"></i></span>
+        </a>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card shadow-soft card-lux reveal delay-2">
+          <div class="card-body p-4">
+            <h2 class="h5 fw-bold mb-3">Menu Cepat (Halaman)</h2>
+            <div class="d-grid gap-2">
+              <a class="btn btn-light border btn-lux" href="peta-desa.html">
+                <i class="bi bi-map me-2"></i> Peta Desa
+              </a>
+              <a class="btn btn-light border btn-lux" href="peta-kecamatan.html">
+                <i class="bi bi-buildings me-2"></i> Peta Kecamatan
+              </a>
+              <a class="btn btn-light border btn-lux" href="tanya-arah.html">
+                <i class="bi bi-signpost-2 me-2"></i> Tanya Arah
+              </a>
+              <a class="btn btn-light border btn-lux" href="tentang.html">
+                <i class="bi bi-info-circle me-2"></i> Tentang
+              </a>
+            </div>
+            <hr class="my-4">
+            <div class="small text-muted">
+              Tips: klik layer di kanan (ikon layer) untuk on/off data.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- MENU DI BERANDA (SCROLL) -->
+  <section id="nav-sections" class="container py-5">
+    <h2 class="h4 fw-bold mb-3 reveal delay-1">Menu di Beranda (Scroll)</h2>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <a class="card shadow-soft mini-lux h-100 text-decoration-none reveal delay-2" href="#nav-sections">
+          <div class="card-body">
+            <div class="mini-title"><i class="bi bi-house me-1"></i> Beranda</div>
+            <div class="text-muted">Ringkasan & navigasi cepat.</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a class="card shadow-soft mini-lux h-100 text-decoration-none reveal delay-2" href="#preview-peta-desa">
+          <div class="card-body">
+            <div class="mini-title"><i class="bi bi-map me-1"></i> Preview Peta Desa</div>
+            <div class="text-muted">Lihat peta di beranda (anti macet).</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4">
+        <a class="card shadow-soft mini-lux h-100 text-decoration-none reveal delay-2" href="#preview-tanya">
+          <div class="card-body">
+            <div class="mini-title"><i class="bi bi-signpost-2 me-1"></i> Preview Tanya Arah</div>
+            <div class="text-muted">Form rute cepat (tetap ada halaman).</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6">
+        <a class="card shadow-soft mini-lux h-100 text-decoration-none reveal delay-3" href="#preview-tentang">
+          <div class="card-body">
+            <div class="mini-title"><i class="bi bi-info-circle me-1"></i> Preview Tentang</div>
+            <div class="text-muted">Profil WebGIS + info pembuat.</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-6">
+        <a class="card shadow-soft mini-lux h-100 text-decoration-none reveal delay-3" href="peta-kecamatan.html">
+          <div class="card-body">
+            <div class="mini-title"><i class="bi bi-buildings me-1"></i> Peta Kecamatan</div>
+            <div class="text-muted">Klik untuk buka halaman peta kecamatan.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW PETA DESA (ANTI SCROLL MACET) -->
+  <section id="preview-peta-desa" class="bg-soft">
+    <div class="container py-5">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 class="h4 fw-bold mb-0 reveal delay-1">Preview Peta Desa</h2>
+        <a class="btn btn-soft reveal delay-2" href="peta-desa.html">
+          <i class="bi bi-arrows-fullscreen me-1"></i> Buka Fullscreen
+        </a>
+      </div>
+
+      <div class="card shadow-soft card-lux overflow-hidden reveal delay-2">
+        <div class="ratio ratio-16x9 map-preview" id="mapPreview">
+          <iframe src="peta-desa/index.html" title="Preview Peta Desa" loading="lazy"></iframe>
+          <div class="map-overlay">
+            <div class="hint">
+              <i class="bi bi-mouse2"></i> Klik peta untuk interaksi (ESC keluar)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="small text-muted mt-3 reveal delay-3">
+        Catatan: supaya scroll halaman tidak macet, peta harus diklik dulu untuk zoom/geser.
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW TANYA ARAH (tetap ada halaman tanya-arah.html) -->
+  <section id="preview-tanya" class="container py-5">
+    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+      <h2 class="h4 fw-bold mb-0 reveal delay-1">Preview Tanya Arah</h2>
+      <a class="btn btn-outline-pink reveal delay-2" href="tanya-arah.html">
+        <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman
+      </a>
+    </div>
+
+    <div class="card shadow-soft card-lux reveal delay-2">
+      <div class="card-body p-4">
+        <div class="pill mb-3"><i class="bi bi-signpost-2"></i> Navigasi</div>
+        <h3 class="display-6 fw-bold mb-2">Cari rute ke Desa Purwasana</h3>
+        <p class="text-muted mb-4">
+          Membuka Google Maps Directions (tanpa API key). Isi asal & tujuan, lalu cari rute.
+        </p>
+
+        <div class="row g-2">
+          <div class="col-md-5">
+            <input id="asal" class="form-control form-control-lg" placeholder="Asal (alamat / nama tempat)">
+          </div>
+          <div class="col-md-5">
+            <input id="tujuan" class="form-control form-control-lg" value="Isikan Alamat Tujuan" placeholder="Tujuan">
+          </div>
+          <div class="col-md-2 d-grid">
+            <button class="btn btn-soft btn-lg" onclick="go()">Cari</button>
+          </div>
+        </div>
+
+        <div class="small text-muted mt-3">
+          Tip: Isikan Asal dan Tujuan
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW TENTANG (tetap ada halaman tentang.html) -->
+  <section id="preview-tentang" class="bg-soft">
+    <div class="container py-5">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+        <h2 class="h4 fw-bold mb-0 reveal delay-1">Preview Tentang</h2>
+        <a class="btn btn-outline-pink reveal delay-2" href="tentang.html">
+          <i class="bi bi-box-arrow-up-right me-1"></i> Buka Halaman
+        </a>
+      </div>
+
+      <div class="card shadow-soft card-lux reveal delay-2">
+        <div class="card-body p-4">
+          <div class="pill mb-3"><i class="bi bi-info-circle"></i> Profil WebGIS</div>
+          <h3 class="display-6 fw-bold mb-2">Tentang WebGIS Purwasana</h3>
+          <p class="text-muted mb-4">
+            WebGIS ini menampilkan peta interaktif Desa Purwasana meliputi batas desa, RT/RW,
+            fasilitas umum, jalan, bangunan, dan penggunaan lahan.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="tag">QGIS</span>
+            <span class="tag">qgis2web</span>
+            <span class="tag">Leaflet</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card shadow-soft">
+                <div class="card-body">
+                  <div class="fw-bold mb-1"><i class="bi bi-person-badge me-1"></i> Pembuat</div>
+                  <div class="text-muted">Nama : Intan Elistiana</div>
+                  <div class="text-muted">NIM  : 23SA21A096</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-soft">
+                <div class="card-body">
+                  <div class="fw-bold mb-1"><i class="bi bi-mortarboard me-1"></i> Mata kuliah</div>
+                  <div class="text-muted">Geographic Information System</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-soft">
+                <div class="card-body">
+                  <div class="fw-bold mb-1"><i class="bi bi-database me-1"></i> Sumber data</div>
+                  <div class="text-muted"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-soft">
+                <div class="card-body">
+                  <div class="fw-bold mb-1"><i class="bi bi-mouse me-1"></i> Cara pakai</div>
+                  <div class="text-muted">Zoom, pilih layer, klik objek untuk popup.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container py-4">
+    <div class="small text-muted text-center">
+      © WebGIS Purwasana — dibuat dengan QGIS, qgis2web, Leaflet, Bootstrap
+    </div>
+  </footer>
+
+</main>
+
+<script>
+/* tombol tanya arah (preview di beranda) */
+function go(){
+  const asal = document.getElementById('asal').value.trim();
+  const tujuan = document.getElementById('tujuan').value.trim();
+  if(!tujuan){ alert('Isi tujuan dulu ya 🙂'); return; }
+  const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(asal)}&destination=${encodeURIComponent(tujuan)}`;
+  window.open(url, '_blank');
+}
+</script>
+
+<script>
+/* Animasi muncul saat scroll */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
+<script>
+/* Click-to-interact iframe map (anti scroll macet) */
+(function(){
+  const box = document.getElementById('mapPreview');
+  if(!box) return;
+
+  box.addEventListener('click', () => box.classList.add('active'));
+  box.addEventListener('mouseleave', () => box.classList.remove('active'));
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') box.classList.remove('active');
+  });
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
